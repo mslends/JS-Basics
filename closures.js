@@ -10,11 +10,11 @@ var outer = function(){
 //Invoke outer saving the return value into another variable called 'inner'.
 
   //Code Here
-
+var inner = outer();
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //Next problem
@@ -33,7 +33,8 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
-
+var callJake = callFriend()
+console.log(callJake ("435-215-9248"))
 
 
 //Next Problem
@@ -45,6 +46,13 @@ var callFriend = function(){
 */
 
   //Code Here
+  function makeCounter() {
+    var start = 0;
+    return function() {
+      start++;
+      return start;
+    }
+  }
   var count = makeCounter();
   count(); // 1
   count(); // 2
@@ -62,7 +70,24 @@ var callFriend = function(){
 */
 
   //Code Here
+function codeLove () {
+  return "I love code";
 
+}
+function codeFriend(fn) {
+  var limiter = 0;
+  return function() {
+    if(limiter < 1) {
+      limiter++;
+      return fn();
+    }else {
+      return null;
+    }
+
+  }
+
+}
+var codeEcho = codeFriend(codeLove);
 
 
 //Next Problem
@@ -72,8 +97,21 @@ var callFriend = function(){
 /*
   Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters. The first parameter will be an anonymous function and the second parameter, 'N', will be a number. Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times. After it's been invoked 'N' number of times, return 'STOP'.
 */
+function fnCounter(fn, N) {
+  var number = N;
+  function () {
+    if(number <= N) {
+      return fn();
+      number++;
+    }else {
+      return "STOP";
+    }
+
+  }
 
 
+}
+   
 
 //Next Problem
 
@@ -123,5 +161,3 @@ var callFriend = function(){
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
-
-
