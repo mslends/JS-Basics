@@ -52,7 +52,7 @@ console.log(callJake ("435-215-9248"))
       start++;
       return start;
     }
-  }
+  };
   var count = makeCounter();
   count(); // 1
   count(); // 2
@@ -99,7 +99,7 @@ var codeEcho = codeFriend(codeLove);
 */
 function fnCounter(fn, N) {
   var number = N;
-  function () {
+  return function() {
     if(number <= N) {
       return fn();
       number++;
@@ -111,7 +111,7 @@ function fnCounter(fn, N) {
 
 
 }
-   
+
 
 //Next Problem
 
@@ -129,7 +129,7 @@ function fnCounter(fn, N) {
   Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
     //Answer Here
-
+// i will pop up after 1 second.
 
   Now, run the function in your console and note what happpens.
 
@@ -137,12 +137,19 @@ function fnCounter(fn, N) {
 
     //Answer Here
 
-
+wrong
   Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc) (Note: No unit test for this one because of the timeout)
 */
 
     //Code Here
-
+    var counter = function(){
+      for (var i=1; i<=5; i++) {
+        setTimeout( function timer(param1){
+            console.log( i );
+        }, i*1000 );
+      }
+    };
+    counter();
 
 
 //Next Problem
